@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startButton: {fileID: 6671969812669865141}
-  _gameStage: {fileID: 8172866831134074812, guid: ca988eeb72857a74f9607a04757eb85d, type: 3}
+  _gameStage: {fileID: 2883659074544291533, guid: 16810f9fbf611354bb7a2a0f0c74685f, type: 3}
 --- !u!114 &77269164473731773
 MonoBehaviour:
   m_ObjectHideFlags: 0
