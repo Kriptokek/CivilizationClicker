@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df4da72334544cb1b93d81d2d0c1a394, type: 3}
-  m_Name: SecondElement
+  m_Name: Element02
   m_EditorClassIdentifier: 
-  Number: 0
-  Sprite: {fileID: 0}
+  Number: 1
+  Sprite: {fileID: 21300006, guid: b08e570699f1c8a4f9cc388204aef3bc, type: 3}
