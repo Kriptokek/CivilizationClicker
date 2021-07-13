@@ -13,6 +13,7 @@ public class MainMenuController : ViewController<MainMenuView>
 
 	private void StartGame()
 	{
-		
+		gameObject.SetActive(false);
+		Instantiate(View.GameStage);
 	}
 }

@@ -1,9 +1,14 @@
-﻿using strange.extensions.context.impl;
+﻿using strange.extensions.context.api;
+using strange.extensions.context.impl;
 
-public class GameRoot : ContextView
+namespace CivilizationClicker
 {
-	private void Awake()
+	public class GameRoot : ContextView
 	{
-		context.Start();
-	}
+		private void Awake()
+		{
+			context = new GameContext(this, ContextStartupFlags.MANUAL_MAPPING);
+			context.Start();
+		}
+	}	
 }
