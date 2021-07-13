@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _instantiateTime: 3
+  _instantiateOffset: 2
   _clickableItem: {fileID: 6149882424678097451}
   _background: {fileID: 8074946411281719921}
   _sectionNumber: 1

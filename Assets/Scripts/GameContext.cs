@@ -1,4 +1,5 @@
-﻿using strange.extensions.command.api;
+﻿using CivilizationClicker.PlayerProfileNameSpace;
+using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using strange.extensions.context.impl;
@@ -30,12 +31,22 @@ namespace CivilizationClicker
 		protected override void mapBindings()
 		{
 			base.mapBindings();
+			PlayerProfileBinds();
 			SignalBinds();
+		}
+
+		private void PlayerProfileBinds()
+		{
+			injectionBinder.Bind<IPlayerProfile>().To<PlayerProfile>().ToSingleton();
+			injectionBinder.Bind<IPlayerResource>().To<PlayerResource>().ToSingleton();
 		}
 
 		private void SignalBinds()
 		{
 			injectionBinder.Bind<SignalInstantiate>().ToSingleton();
+			injectionBinder.Bind<SignalOnGoldCurrencyChanged>().ToSingleton();
+			injectionBinder.Bind<SignalOnWoodenCurrencyChanged>().ToSingleton();
+			injectionBinder.Bind<SignalOnIronCurrencyChanged>().ToSingleton();
 		}
 	}
 }

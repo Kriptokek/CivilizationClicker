@@ -9,6 +9,7 @@ public class SubSectionView : View
     #region Fields
 
     [SerializeField] private float _instantiateTime;
+    [SerializeField] private float _instantiateOffset;
     [SerializeField] private ClickableController _clickableItem;
     [SerializeField] private Transform _background;
     [SerializeField] private int _sectionNumber;
@@ -31,4 +32,6 @@ public class SubSectionView : View
     #endregion
     
     [Inject] public SignalInstantiate jSignalInstantiate { get; set; }
+
+    public float InstantiateOffset => _instantiateOffset;
 }

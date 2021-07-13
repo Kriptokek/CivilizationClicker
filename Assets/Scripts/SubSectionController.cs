@@ -23,7 +23,12 @@ public class SubSectionController : ViewController<SubSectionView>
     {
         while (true)
         {
-            ElementInstantiate(View.CurrentMaxElement, Vector3.zero);
+            var randomOffset = new Vector3(
+                Random.Range(0, View.InstantiateOffset), 
+                Random.Range(0, View.InstantiateOffset), 
+                Random.Range(0, View.InstantiateOffset));
+            
+            ElementInstantiate(View.CurrentMaxElement, Vector3.zero + randomOffset);
             
             var time = View.InstantiateTime;
             while (time > 0)
@@ -42,7 +47,8 @@ public class SubSectionController : ViewController<SubSectionView>
         
         if (needElement != null)
         {
-            item.View.Initialize(needElement.Sprite, needElement.Number); 
+            item.View.Initialize(needElement.Sprite, needElement.Number,
+                needElement.GoldProductivity, needElement.NativeProductivity, needElement.NativeCurrencies); 
         }
     }
 }

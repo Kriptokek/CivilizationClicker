@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class ClickableController : ViewController<ClickableView>
+public class ClickableController : ViewController<ClickableView>, IClickable
 {
     private Camera _mainCamera;
-    private bool _isDragging;
     private InputState _inputState;
 
     private void OnEnable()
@@ -16,15 +16,14 @@ public class ClickableController : ViewController<ClickableView>
     public void OnMouseDown() 
     {
         View.ClickableSpriteRenderer.color = new Color(1f, 0.39f, 0.25f);
-        _isDragging = true;
         _inputState = InputState.Down;
     }
 
     public void OnMouseUp()
     {
         View.ClickableSpriteRenderer.color = Color.white;
-        _isDragging = false;
         _inputState = InputState.Up;
+        Click();
     }
 
     private void OnMouseDrag()
@@ -38,7 +37,6 @@ public class ClickableController : ViewController<ClickableView>
     private void OnTriggerStay2D(Collider2D other)
     {
         ClickableController clickableController = other.GetComponent<ClickableController>();
-        Debug.Log(clickableController);
         if (clickableController == null) return;
         
         if (_inputState != InputState.Up && clickableController.View.ElementId == View.ElementId)
@@ -53,6 +51,28 @@ public class ClickableController : ViewController<ClickableView>
         Destroy(gameObject);
         Destroy(other);
     }
+
+    public void Click()
+    {
+        switch (View.NativeCurrencies)
+        {
+            case NativeCurrencies.Wooden:
+                View.jPlayerProfile.PlayerResource.AddWoodenCurrency(View.NativeCurrencyProductivity);
+                break;
+            case NativeCurrencies.Iron:
+                View.jPlayerProfile.PlayerResource.AddIronCurrency(View.NativeCurrencyProductivity);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
+        View.jPlayerProfile.PlayerResource.AddGoldCurrency(View.GoldCurrencyProductivity);
+    }
+}
+
+public interface IClickable
+{
+    void Click();
 }
 
 public enum InputState
