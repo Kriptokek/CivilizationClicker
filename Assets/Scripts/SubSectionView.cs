@@ -28,10 +28,12 @@ public class SubSectionView : View
     public IEnumerable<Element> Elements => Resources.LoadAll($"SectionElements{_sectionNumber}", typeof(Element)).Cast<Element>();
 
     public int CurrentMaxElement => _currentMaxElement;
+    
+    public float InstantiateOffset => _instantiateOffset;
 
     #endregion
     
     [Inject] public SignalInstantiate jSignalInstantiate { get; set; }
 
-    public float InstantiateOffset => _instantiateOffset;
+    
 }

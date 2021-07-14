@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SubSectionController : ViewController<SubSectionView>
 {
@@ -9,12 +11,15 @@ public class SubSectionController : ViewController<SubSectionView>
     private void Start()
     {
         View.jSignalInstantiate.AddListener(ElementInstantiate);
+    }
+
+    private void OnEnable()
+    {
         _coroutine = StartCoroutine(ItemGenerator());
     }
 
     private void OnDisable()
     {
-        View.jSignalInstantiate.RemoveListener(ElementInstantiate);
         StopCoroutine(_coroutine);
         _coroutine = null;
     }
