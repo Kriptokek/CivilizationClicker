@@ -45,11 +45,9 @@ public class StageView : View
 
     private void SubStageOpen(int subStageToOpenId)
     {
-        foreach (GameObject subStage in _subStages)
+        for (int i = 0; i < _subStages.Count; i++)
         {
-            subStage.SetActive(false);
+            _subStages[i].SetActive(i == subStageToOpenId);
         }
-        
-        _subStages[subStageToOpenId].SetActive(true);
     }
 }
