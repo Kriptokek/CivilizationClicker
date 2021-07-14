@@ -1,15 +1,28 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CivilizationClicker.PlayerProfileNameSpace
 {
+	public class Warrior
+	{
+		private GameObject _gameObject;
+		private int _cost = 0;
+		private int _numberOfPurchased = 0;
+	}
 	public class PlayerResource : IPlayerResource
 	{
 		private int _woodenCurrency;
 		private int _ironCurrency;
 		private int _goldCurrency;
-		
-		[Inject] public SignalOnWoodenCurrencyChanged jSignalOnWoodenCurrencyChanged { get; set; }
+		private List<Warrior> _units;
+		public List<Warrior> Units
+		{
+			get => _units;
+			private set => _units = value;
+		}
+
+		public SignalOnWoodenCurrencyChanged jSignalOnWoodenCurrencyChanged { get; set; }
 		[Inject] public SignalOnGoldCurrencyChanged jSignalOnGoldCurrencyChanged { get; set; }
 		[Inject] public SignalOnIronCurrencyChanged jSignalOnIronCurrencyChanged { get; set; }
 
