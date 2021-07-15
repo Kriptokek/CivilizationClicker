@@ -41,15 +41,15 @@ public class ClickableController : ViewController<ClickableView>, IClickable
         
         if (_inputState != InputState.Up && clickableController.View.ElementId == View.ElementId)
         {
-            Merge(other.gameObject);
+            Merge(clickableController);
         }
     }
 
-    private void Merge(GameObject other)
+    private void Merge(Component clickableController)
     {
         View.jSignalInstantiate.Dispatch(View.ElementId + 1, gameObject.transform.position);
         Destroy(gameObject);
-        Destroy(other);
+        Destroy(clickableController.gameObject);
     }
 
     public void Click()
