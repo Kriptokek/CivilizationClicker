@@ -14,7 +14,9 @@ public class MainMenuController : ViewController<MainMenuView>
 	private void StartGame()
 	{
 		gameObject.SetActive(false);
-		Instantiate(View.GameHud, transform.parent);
-		Instantiate(View.Stage, transform.parent);
+		var parent = transform.parent;
+		
+		Instantiate(View.GameHud, parent);
+		Instantiate(View.Stage, parent);
 	}
 }

@@ -36,7 +36,7 @@ public class ClickableController : ViewController<ClickableView>, IClickable
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        ClickableController clickableController = other.GetComponent<ClickableController>();
+        var clickableController = other.GetComponent<ClickableController>();
         if (clickableController == null) return;
         
         if (_inputState != InputState.Up && clickableController.View.ElementId == View.ElementId)
@@ -48,6 +48,7 @@ public class ClickableController : ViewController<ClickableView>, IClickable
     private void Merge(Component clickableController)
     {
         View.jSignalInstantiate.Dispatch(View.ElementId + 1, gameObject.transform.position);
+        
         Destroy(gameObject);
         Destroy(clickableController.gameObject);
     }
@@ -68,16 +69,4 @@ public class ClickableController : ViewController<ClickableView>, IClickable
         
         View.jPlayerProfile.PlayerResource.AddGoldCurrency(View.GoldCurrencyProductivity);
     }
-}
-
-public interface IClickable
-{
-    void Click();
-}
-
-public enum InputState
-{
-    Up = 0,
-    Down = 1,
-    Drag = 2
 }

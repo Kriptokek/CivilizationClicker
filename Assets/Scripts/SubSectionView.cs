@@ -34,6 +34,4 @@ public class SubSectionView : View
     #endregion
     
     [Inject] public SignalInstantiate jSignalInstantiate { get; set; }
-
-    
 }

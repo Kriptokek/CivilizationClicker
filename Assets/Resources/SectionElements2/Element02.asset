@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Element02
   m_EditorClassIdentifier: 
   Number: 1
-  Sprite: {fileID: 21300010, guid: b08e570699f1c8a4f9cc388204aef3bc, type: 3}
+  Sprite: {fileID: 21300000, guid: a6db930a82a99c945bcdc2684219ca1a, type: 3}
   GoldProductivity: 5
   NativeProductivity: 20
   NativeCurrencies: 0
